@@ -9,7 +9,13 @@ def portfolio_cost(filename):
         headers = next(f)
         for line in f:
             row = line.split(',')
-            total_cost = total_cost + int(row[1]) * float(row[2])
+            try:
+                nshares = int(row[1])
+                sharecost = float(row[2])
+            except ValueError:
+                print('Cannot parse:', line)
+                nshares = 0
+            total_cost = total_cost + nshares * sharecost
     return total_cost
 
 cost = portfolio_cost('Data/portfolio.csv')
