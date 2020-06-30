@@ -14,7 +14,7 @@ def read_portfolio(filename):
         for row in rows:
             nshares = int(row[1])
             price = float(row[2])
-            portfolio.append((row[0], nshares, price))
+            portfolio.append({'name':row[0], 'shares':nshares, 'price':price})
     return portfolio
 
 
