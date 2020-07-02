@@ -45,4 +45,4 @@ for h in portfolio:
     current_value += h['shares']*prices[h['name']]
 
 print(f'Current value: {current_value:10.2f}')
-print('Gain: %10.2f' % (current_value - portfolio_value))
+print('Gain: {:10.2f}'.format(current_value - portfolio_value))
