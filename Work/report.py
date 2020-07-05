@@ -47,18 +47,6 @@ report = make_report(portfolio, prices)
 headers = ('Name', 'Shares', 'Price', 'Change')
 print('%10s %10s %10s %10s' % headers)
 print('%10s %10s %10s %10s' % (('-'*10,)*4))
-for r in report:
-    print('%10s %10d %10.2f %10.2f' %r)
+for n, s, p, c in report:
+    print('%10s %10d %10s %10.2f' % (n, s, '$%.2f' % p, c))
 
-portfolio_value = 0.0
-for h in portfolio:
-    portfolio_value += h['shares']*h['price']
-
-# print(f'Original value:{portfolio_value:10.2f}')
-
-#current_value = 0.0
-#for h in portfolio:
-#    current_value += h['shares']*prices[h['name']]
-
-#print(f'Current value: {current_value:10.2f}')
-#print('Gain: {:10.2f}'.format(current_value - portfolio_value))
